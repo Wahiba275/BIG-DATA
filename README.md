@@ -151,8 +151,9 @@
         dataset3.show();
 ```
 - **From JSON File**
-  ```java
-SparkSession ss = SparkSession.builder().appName("test mysql").master("local[*]").getOrCreate();
+  
+```java
+ SparkSession ss = SparkSession.builder().appName("test mysql").master("local[*]").getOrCreate();
         // Load JSON data into a DataFrame
         Dataset<Row> jsonData = ss.read().json("Achats.json");
 
@@ -163,9 +164,10 @@ SparkSession ss = SparkSession.builder().appName("test mysql").master("local[*]"
         dataset.show();
         long dataset1 = jsonData.filter("ville == 'casablanca' ").count();
         System.out.println(dataset1);
-    ```
+```  
 - **From DataBase**
-  ```java
+  
+```java
 SparkSession ss = SparkSession.builder().appName("test mysql").master("local[*]").getOrCreate();
         Map<String , String > options = new HashMap< >( ) ;
         options.put( "driver" ,  "com.mysql.cj.jdbc.Driver" );
@@ -187,7 +189,7 @@ SparkSession ss = SparkSession.builder().appName("test mysql").master("local[*]"
                         "WHERE DATEDEPART <= CURDATE() AND DATEARRIVEE >= CURDATE()")
                 .load();
         dataset1.show();
-    ```
+```
 ## Spark Streaming
 This command sets up a simple network listener on the specified port and waits for incoming connections:
    ``
@@ -292,7 +294,7 @@ public static void main(String[] args) throws Exception {
    dfAchats=spark.read.option("multiline",True).json("achats.json")
    total_revenues_per_city = dfAchats.groupBy("ville").agg(F.sum("prix"))
    total_revenues_per_city.show()
-  ```
+   ```
 
 - **From DataBase**
   - ***Start pyspark***
@@ -346,8 +348,10 @@ public static void main(String[] args) throws Exception {
 ```
 ## Spark with Docker
 - **Command to run the jar**
+  ``
 docker exec -it spark-master spark-submit --class org.example.App2 /bitnami/Spark_Docker-1.0-SNAPSHOT.jar
-
+  ``
+  
 ## SQOOP
 - **Start Xampp**
   
@@ -357,9 +361,9 @@ docker exec -it spark-master spark-submit --class org.example.App2 /bitnami/Spar
 
 - **Import**
   
-``
+```
   sqoop import --connect jdbc:mysql://localhost/spark_db --username "root" --password "" --table employees --target-dir /sqoop {sqoop file in hdfs}
-``
+```
 
 - **Export**
   
