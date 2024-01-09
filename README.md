@@ -347,6 +347,10 @@ public static void main(String[] args) throws Exception {
     
 ```
 ## Spark with Docker
+- **Commande to generate an image**
+     ``
+     docker pull bitnami/spark
+  ``
 - **Command to run the jar**
   ``
 docker exec -it spark-master spark-submit --class org.example.App2 /bitnami/Spark_Docker-1.0-SNAPSHOT.jar
